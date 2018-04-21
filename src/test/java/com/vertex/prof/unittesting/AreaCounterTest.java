@@ -4,11 +4,17 @@ import com.vertex.prof.unittesting.interfaces.AreaCounter;
 import com.vertex.prof.unittesting.interfaces.TriangleVerifier;
 import org.junit.*;
 import org.junit.rules.Timeout;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
+import static org.mockito.Mockito.*;
 
 
+@RunWith(MockitoJUnitRunner.class)
 public class AreaCounterTest {
 
 //    @Rule
@@ -16,18 +22,26 @@ public class AreaCounterTest {
 
     private static final double DELTA = 0.001;
     private AreaCounter underTest;
+
+    @Mock
     private TriangleVerifier triangleVerifier;
 
     @BeforeClass
-    public static void init(){
+    public static void init() {
         System.out.println("In before class");
     }
 
     @Before
     public void setUp() {
         System.out.println("In before");
-        triangleVerifier = new TriangleVerifierImpl();
+//        MockitoAnnotations.initMocks(this);
         underTest = new AreaCounterImpl(triangleVerifier);
+    }
+
+    @Test
+    public void triangleAreaCallsVerifierTest() {
+        underTest.triangleArea(6, 8, 10);
+        verify(triangleVerifier).verifyTriangle(6, 8, 10);
     }
 
     @Test(timeout = 100)
