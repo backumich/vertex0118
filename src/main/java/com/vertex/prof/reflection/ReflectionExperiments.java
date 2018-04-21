@@ -1,6 +1,5 @@
 package com.vertex.prof.reflection;
 
-import com.sun.istack.internal.NotNull;
 
 import java.io.*;
 import java.lang.reflect.*;

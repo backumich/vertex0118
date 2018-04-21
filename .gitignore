@@ -58,6 +58,4 @@ fabric.properties
 .idea/modules.xml
 .idea/vcs.xml
 prof0118.iml
-src/main/resources/
-src/test/
 target/

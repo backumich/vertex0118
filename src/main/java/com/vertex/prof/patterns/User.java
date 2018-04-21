@@ -1,7 +1,5 @@
 package com.vertex.prof.patterns;
 
-import com.sun.istack.internal.NotNull;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -65,14 +63,14 @@ public final class User {
             return this;
         }
 
-        public Builder withFriend(@NotNull User user){
+        public Builder withFriend(User user){
             if(user != null) {
                 instance.friends.add(user);
             }
             return this;
         }
 
-        public Builder withFriends(@NotNull Collection<User> friends){
+        public Builder withFriends(Collection<User> friends){
             instance.friends.addAll(friends);
             return this;
         }

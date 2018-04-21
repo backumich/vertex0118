@@ -18,7 +18,7 @@ public class OverloadingTest {
     static class B extends A {
 
         @Override
-        public C myMethod(B myParam) throws ClassFormatException, JarException{
+        public C myMethod(B myParam) throws JarException{
             return null;
         }
     }
