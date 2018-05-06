@@ -1,10 +1,10 @@
 package com.vertex.prof.unittesting;
 
-import com.vertex.prof.unittesting.interfaces.TriangleVerifier;
+import com.vertex.prof.unittesting.interfaces.FigureValidator;
 
-public class TriangleVerifierImpl implements TriangleVerifier {
+public class FigureValidatorImpl implements FigureValidator {
     @Override
-    public boolean verifyTriangle(double a, double b, double c) {
+    public boolean validateTriangle(double a, double b, double c) {
         return zeroNegativeCheck(a, b, c) && triangleInequalityCheck(a, b, c);
     }
 
@@ -18,6 +18,14 @@ public class TriangleVerifierImpl implements TriangleVerifier {
     private boolean zeroNegativeCheck(double a, double b, double c) {
         if(a <= 0 || b <= 0 || c <= 0){
             throw new IllegalArgumentException("Side can't be zero or negative number");
+        }
+        return true;
+    }
+
+    @Override
+    public boolean validateRectangle(double a, double b) {
+        if(a <= 0 || b <= 0){
+            throw new IllegalArgumentException("Sides of rectangular couldn't be zero or negative");
         }
         return true;
     }
